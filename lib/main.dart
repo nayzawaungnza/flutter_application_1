@@ -51,21 +51,25 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
-      body: Container(
-          color: Colors.greenAccent,
-          height: 100,
-          child: Row(
-            children: [
-              Text('Hello World'),
-              Text('Hello World'),
-              Text('Hello World'),
-            ],
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            verticalDirection: VerticalDirection.down,
-            textDirection: TextDirection.ltr,
-          )),
+      body: Column(
+        children: [
+          Expanded(
+              flex: 2,
+              child: Container(
+                color: Colors.amberAccent,
+              )),
+          Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.red.shade500,
+              )),
+          Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.blue.shade500,
+              )),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
           onPressed: () {
