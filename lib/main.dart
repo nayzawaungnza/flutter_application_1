@@ -52,31 +52,20 @@ class MyApp extends StatelessWidget {
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
       body: Container(
-        // color: Colors.black,
-        // width: 400,
-        // height: 400,
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(10),
-        child: Text(
-          'Hello World',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-            fontFamily: 'SansQH',
-          ),
-        ),
-        alignment: Alignment.center,
-        constraints: BoxConstraints(maxHeight: 400, maxWidth: 400),
-        // transform: Matrix4.rotationZ(0.5),
-        decoration: BoxDecoration(
-            color: Colors.redAccent,
-            gradient: LinearGradient(colors: [
-              Colors.redAccent,
-              Colors.black,
-              Colors.yellow,
-              Colors.greenAccent
-            ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
-      ),
+          color: Colors.greenAccent,
+          height: 100,
+          child: Row(
+            children: [
+              Text('Hello World'),
+              Text('Hello World'),
+              Text('Hello World'),
+            ],
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            verticalDirection: VerticalDirection.down,
+            textDirection: TextDirection.ltr,
+          )),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
           onPressed: () {
