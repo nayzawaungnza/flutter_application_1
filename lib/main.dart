@@ -51,26 +51,39 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
-      body: Column(
-        children: [
-          Image(image: AssetImage('images/1.jpg')),
-          // Image(
-          //   image: FileImage(file),
-          // ),
-          // Image(
-          //   image: MemoryImage(bytes),
-          // ),
-          Image(
-            image: NetworkImage(
-                'https://i0.wp.com/tokyotreatblog.wpcomstaging.com/wp-content/uploads/2023/10/mt-fuji-thumbnail.png?w=1024&ssl=1'),
-            loadingBuilder: (_, widget, loadingProgress) {
-              if (loadingProgress == null) return widget;
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            },
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onLongPress: () {
+                print('text button long press');
+              },
+              onPressed: () {
+                print('click text button');
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                foregroundColor: Colors.white,
+                shadowColor: Colors.greenAccent,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                shape: StadiumBorder(),
+              ),
+              child: Text('Text Button'),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  print('click elevated button');
+                },
+                child: Text('Elevated Button')),
+            OutlinedButton(
+              onPressed: () {
+                print('click outlined button');
+              },
+              child: Text('Outlined Button'),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
