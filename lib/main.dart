@@ -53,21 +53,23 @@ class MyApp extends StatelessWidget {
                   bottomRight: Radius.circular(30)))),
       body: Column(
         children: [
-          Expanded(
-              flex: 2,
-              child: Container(
-                color: Colors.amberAccent,
-              )),
-          Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.red.shade500,
-              )),
-          Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.blue.shade500,
-              )),
+          Image(image: AssetImage('images/1.jpg')),
+          // Image(
+          //   image: FileImage(file),
+          // ),
+          // Image(
+          //   image: MemoryImage(bytes),
+          // ),
+          Image(
+            image: NetworkImage(
+                'https://i0.wp.com/tokyotreatblog.wpcomstaging.com/wp-content/uploads/2023/10/mt-fuji-thumbnail.png?w=1024&ssl=1'),
+            loadingBuilder: (_, widget, loadingProgress) {
+              if (loadingProgress == null) return widget;
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
