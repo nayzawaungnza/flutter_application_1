@@ -53,35 +53,12 @@ class MyApp extends StatelessWidget {
                   bottomRight: Radius.circular(30)))),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-              onLongPress: () {
-                print('text button long press');
-              },
-              onPressed: () {
-                print('click text button');
-              },
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.redAccent,
-                foregroundColor: Colors.white,
-                shadowColor: Colors.greenAccent,
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                shape: StadiumBorder(),
-              ),
-              child: Text('Text Button'),
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  print('click elevated button');
-                },
-                child: Text('Elevated Button')),
-            OutlinedButton(
-              onPressed: () {
-                print('click outlined button');
-              },
-              child: Text('Outlined Button'),
-            ),
+            ElevatedButton.icon(
+              onPressed: () {},
+              label: Text('Elevated Button'),
+              icon: Icon(Icons.add),
+            )
           ],
         ),
       ),
