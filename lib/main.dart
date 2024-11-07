@@ -55,44 +55,42 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
-      body: GridView.builder(
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200,
-              // crossAxisCount: 3,
-              crossAxisSpacing: 5,
-              mainAxisSpacing: 5),
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(_list[index].name!),
-                  duration: Duration(seconds: 5),
-                  backgroundColor: Colors.redAccent,
-                  action: SnackBarAction(
-                    label: 'close',
-                    onPressed: () {},
-                    textColor: Colors.greenAccent,
-                    disabledTextColor: Colors.redAccent,
-                    disabledBackgroundColor: Colors.blueAccent,
-                    backgroundColor: Colors.amberAccent,
-                  ),
-                ));
-              },
+      body: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.redAccent,
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10)),
+            ),
+            height: 200,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Home',
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+                Text('Settings',
+                    style: TextStyle(color: Colors.white, fontSize: 24)),
+                Text('Contact',
+                    style: TextStyle(color: Colors.white, fontSize: 24)),
+              ],
+            ),
+          ),
+          Positioned(
+              left: 15,
+              right: 15,
+              height: 200,
+              bottom: -100,
               child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                color: Colors.blueGrey,
-                child: Column(
-                  children: [
-                    Text(_list[index].name!),
-                    Text(_list[index].phone!),
-                    Text(_list[index].email!),
-                  ],
-                ),
-              ),
-            );
-          }),
+                elevation: 8,
+              ))
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
           onPressed: () {
