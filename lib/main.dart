@@ -55,51 +55,44 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
-      body: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 3 / 5),
-        children: [
-          Container(
-            color: Colors.redAccent,
-          ),
-          Container(
-            color: Colors.greenAccent,
-          ),
-          Container(
-            color: Colors.blueAccent,
-          ),
-          Container(
-            color: Colors.purpleAccent,
-          ),
-          Container(
-            color: Colors.redAccent,
-          ),
-          Container(
-            color: Colors.greenAccent,
-          ),
-          Container(
-            color: Colors.blueAccent,
-          ),
-          Container(
-            color: Colors.purpleAccent,
-          ),
-          Container(
-            color: Colors.redAccent,
-          ),
-          Container(
-            color: Colors.greenAccent,
-          ),
-          Container(
-            color: Colors.blueAccent,
-          ),
-          Container(
-            color: Colors.purpleAccent,
-          )
-        ],
-      ),
+      body: GridView.builder(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200,
+              // crossAxisCount: 3,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5),
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(_list[index].name!),
+                  duration: Duration(seconds: 5),
+                  backgroundColor: Colors.redAccent,
+                  action: SnackBarAction(
+                    label: 'close',
+                    onPressed: () {},
+                    textColor: Colors.greenAccent,
+                    disabledTextColor: Colors.redAccent,
+                    disabledBackgroundColor: Colors.blueAccent,
+                    backgroundColor: Colors.amberAccent,
+                  ),
+                ));
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                color: Colors.blueGrey,
+                child: Column(
+                  children: [
+                    Text(_list[index].name!),
+                    Text(_list[index].phone!),
+                    Text(_list[index].email!),
+                  ],
+                ),
+              ),
+            );
+          }),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
           onPressed: () {
