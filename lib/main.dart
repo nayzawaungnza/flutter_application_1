@@ -51,31 +51,37 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
-      body: Center(
-        child: Stack(
-          clipBehavior: Clip.none,
-          alignment: Alignment.bottomCenter,
+      body: Container(
+        color: Colors.redAccent,
+        height: 500,
+        child: Wrap(
+          direction: Axis.horizontal,
+          spacing: 10,
+          textDirection: TextDirection.ltr,
+          alignment: WrapAlignment.spaceAround,
+          runAlignment: WrapAlignment.center,
           children: [
-            Container(
-              height: 400,
-              color: Colors.redAccent,
+            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
+            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
+            ElevatedButton.icon(
+              onPressed: () {},
+              label: Text('Hello World'),
+              icon: Icon(Icons.home),
             ),
-            Positioned(
-                top: -100,
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      color: Colors.greenAccent, shape: BoxShape.circle),
-                )),
-            Positioned(
-                bottom: -100,
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      color: Colors.greenAccent, shape: BoxShape.circle),
-                ))
+            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
+            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
+            ElevatedButton.icon(
+              onPressed: () {},
+              label: Text('Hello World'),
+              icon: Icon(Icons.home),
+            ),
+            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
+            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
+            ElevatedButton.icon(
+              onPressed: () {},
+              label: Text('Hello World'),
+              icon: Icon(Icons.home),
+            )
           ],
         ),
       ),
