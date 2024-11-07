@@ -51,39 +51,19 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
-      body: Container(
-        color: Colors.redAccent,
-        height: 500,
-        child: Wrap(
-          direction: Axis.horizontal,
-          spacing: 10,
-          textDirection: TextDirection.ltr,
-          alignment: WrapAlignment.spaceAround,
-          runAlignment: WrapAlignment.center,
-          children: [
-            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
-            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
-            ElevatedButton.icon(
-              onPressed: () {},
-              label: Text('Hello World'),
-              icon: Icon(Icons.home),
-            ),
-            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
-            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
-            ElevatedButton.icon(
-              onPressed: () {},
-              label: Text('Hello World'),
-              icon: Icon(Icons.home),
-            ),
-            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
-            ElevatedButton(onPressed: () {}, child: Text('Hello World')),
-            ElevatedButton.icon(
-              onPressed: () {},
-              label: Text('Hello World'),
-              icon: Icon(Icons.home),
-            )
-          ],
-        ),
+      body: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+          Text('Hello World'),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
