@@ -52,13 +52,30 @@ class MyApp extends StatelessWidget {
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
       body: Center(
-        child: Column(
+        child: Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.bottomCenter,
           children: [
-            ElevatedButton.icon(
-              onPressed: () {},
-              label: Text('Elevated Button'),
-              icon: Icon(Icons.add),
-            )
+            Container(
+              height: 400,
+              color: Colors.redAccent,
+            ),
+            Positioned(
+                top: -100,
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  decoration: BoxDecoration(
+                      color: Colors.greenAccent, shape: BoxShape.circle),
+                )),
+            Positioned(
+                bottom: -100,
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  decoration: BoxDecoration(
+                      color: Colors.greenAccent, shape: BoxShape.circle),
+                ))
           ],
         ),
       ),
