@@ -55,18 +55,51 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)))),
-      body: ListView.builder(
-          itemCount: _list.length,
-          itemBuilder: (BuildContext context, index) {
-            return Card(
-              child: ListTile(
-                title: Text(_list[index].name!),
-                subtitle: Text(_list[index].email!),
-                trailing: Text(_list[index].phone!),
-                leading: Icon(Icons.person),
-              ),
-            );
-          }),
+      body: GridView(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 3 / 5),
+        children: [
+          Container(
+            color: Colors.redAccent,
+          ),
+          Container(
+            color: Colors.greenAccent,
+          ),
+          Container(
+            color: Colors.blueAccent,
+          ),
+          Container(
+            color: Colors.purpleAccent,
+          ),
+          Container(
+            color: Colors.redAccent,
+          ),
+          Container(
+            color: Colors.greenAccent,
+          ),
+          Container(
+            color: Colors.blueAccent,
+          ),
+          Container(
+            color: Colors.purpleAccent,
+          ),
+          Container(
+            color: Colors.redAccent,
+          ),
+          Container(
+            color: Colors.greenAccent,
+          ),
+          Container(
+            color: Colors.blueAccent,
+          ),
+          Container(
+            color: Colors.purpleAccent,
+          )
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
           onPressed: () {
